@@ -1,3 +1,18 @@
 {
-  
+  "name": "Full Name",
+  "full_name": "Name",
+  "password": "Password",
+  "confirm_password": "Confirm Password",
+  "password_match": "Password Doesn't match",
+  "phone": "Phone",
+  "email": "Email",
+  "login": "Login",
+  "register": "Register",
+  "logout": "Logout",
+  "success": "success",
+  "loading": "loading...",
+  "error_occurred": "Error Occurred, Try again",
+  "user_data": "User Data",
+  "language_button": "عربي",
+  "empty_field": "This Field must be filled"
 }
