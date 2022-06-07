@@ -33,7 +33,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     });
 }
 
-  bool showPassword = false;
+  bool showPassword = true;
   IconData suffixIcon = Icons.visibility_off_outlined;
 
   void changeSuffixIcon(context) {
@@ -43,10 +43,9 @@ class RegisterCubit extends Cubit<RegisterState> {
     } else {
       suffixIcon = Icons.visibility_off_outlined;
     }
-    emit(VisibilityChanged());
   }
 
-  bool showConfirmPassword = false;
+  bool showConfirmPassword = true;
   IconData confirmSuffixIcon = Icons.visibility_off_outlined;
 
   void changeConfirmSuffixIcon(context) {
@@ -56,6 +55,5 @@ class RegisterCubit extends Cubit<RegisterState> {
     } else {
       confirmSuffixIcon = Icons.visibility_off_outlined;
     }
-    emit(VisibilityChanged());
   }
 }

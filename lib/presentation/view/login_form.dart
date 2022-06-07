@@ -7,13 +7,19 @@ import '../../i18n/local_keys.g.dart';
 import '../widget/default_Form_Field.dart';
 import '../widget/default_button.dart';
 
-class LoginForm extends StatelessWidget {
+class LoginForm extends StatefulWidget {
   LoginForm({Key? key}) : super(key: key);
 
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  var loginFormKey = GlobalKey<FormState>();
+  @override
+  State<LoginForm> createState() => _LoginFormState();
+}
 
+class _LoginFormState extends State<LoginForm> {
+  TextEditingController emailController = TextEditingController();
+
+  TextEditingController passwordController = TextEditingController();
+
+  var loginFormKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +58,9 @@ class LoginForm extends StatelessWidget {
                       hintText: LocaleKeys.password.tr(),
                       suffix:  LoginCubit.get(context).suffixIcon,
                       suffixPressed:(){
-                        LoginCubit.get(context).changeSuffixIcon(context);
+                        setState(() {
+                          LoginCubit.get(context).changeSuffixIcon(context);
+                        });
                       }
                   ),
 

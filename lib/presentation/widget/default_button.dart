@@ -32,7 +32,7 @@ class DefaultButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
           color: color??AppColor.blue
         ),
-        child: DefaultText(text: text,color: textColor ?? AppColor.white,size: 20,)
+        child: DefaultText(text: text,color: textColor ?? AppColor.white,size: 20,isButton: true,)
       ),
     );
   }

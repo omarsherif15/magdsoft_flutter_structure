@@ -6,14 +6,24 @@ import '../../i18n/local_keys.g.dart';
 import '../widget/default_Form_Field.dart';
 import '../widget/default_button.dart';
 
-class RegisterForm extends StatelessWidget {
+class RegisterForm extends StatefulWidget {
   RegisterForm({Key? key}) : super(key: key);
 
+  @override
+  State<RegisterForm> createState() => _RegisterFormState();
+}
+
+class _RegisterFormState extends State<RegisterForm> {
   TextEditingController emailController = TextEditingController();
+
   TextEditingController passwordController = TextEditingController();
+
   TextEditingController nameController = TextEditingController();
+
   TextEditingController phoneController = TextEditingController();
+
   TextEditingController confirmPasswordController = TextEditingController();
+
   var loginFormKey = GlobalKey<FormState>();
 
   @override
@@ -65,11 +75,13 @@ class RegisterForm extends StatelessWidget {
                     DefaultFormField(
                       controller: passwordController,
                       keyboardType: TextInputType.text,
-                      isPassword: RegisterCubit.get(context).showPassword ? true : false,
+                      isPassword: RegisterCubit.get(context).showPassword,
                       hintText: LocaleKeys.password.tr(),
                       suffix: RegisterCubit.get(context).suffixIcon,
                       suffixPressed: () {
-                        RegisterCubit.get(context).changeSuffixIcon(context);
+                        setState(() {
+                          RegisterCubit.get(context).changeSuffixIcon(context);
+                        });
                       },
                     ),
                     const SizedBox(
@@ -78,19 +90,23 @@ class RegisterForm extends StatelessWidget {
                     DefaultFormField(
                       controller: confirmPasswordController,
                       keyboardType: TextInputType.text,
-                      isPassword: RegisterCubit.get(context).showConfirmPassword ? true : false,
+                      isPassword: RegisterCubit.get(context).showConfirmPassword,
                       hintText: LocaleKeys.confirm_password.tr(),
                       validate: (value) {
                         if (value!.isEmpty) {
                           return LocaleKeys.empty_field.tr();
-                        } else if (value != passwordController.text) {
+                        }
+                        else if (value != passwordController.text) {
                           return LocaleKeys.password_match.tr();
                         }
+                        return null;
                       },
                       suffix: RegisterCubit.get(context).confirmSuffixIcon,
                       suffixPressed: () {
-                        RegisterCubit.get(context)
-                            .changeConfirmSuffixIcon(context);
+                        setState(() {
+                          RegisterCubit.get(context)
+                              .changeConfirmSuffixIcon(context);
+                        });
                       },
                     ),
                   ],

@@ -9,7 +9,7 @@ class DefaultFormField extends StatelessWidget {
   String hintText;
   TextInputType keyboardType;
   String? Function(String?)? validate;
-  bool? isPassword;
+  bool isPassword;
   IconData? suffix;
   void Function()? suffixPressed;
 
@@ -19,7 +19,7 @@ class DefaultFormField extends StatelessWidget {
    required this.hintText,
    required this.keyboardType,
     this.validate,
-    this.isPassword,
+    this.isPassword = false,
     this.suffix,
     this.suffixPressed
   }) : super(key: key);
@@ -29,7 +29,7 @@ class DefaultFormField extends StatelessWidget {
     return TextFormField(
       controller: controller,
       keyboardType: keyboardType,
-      obscureText: isPassword ?? false,
+      obscureText: isPassword,
       textAlign: TextAlign.start,
       style: TextStyle(color: AppColor.grey,fontSize: 20),
       validator: validate ?? (value)

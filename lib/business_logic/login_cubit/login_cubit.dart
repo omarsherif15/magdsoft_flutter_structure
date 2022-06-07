@@ -31,7 +31,7 @@ class LoginCubit extends Cubit<LoginState> {
     });
 }
 
-  bool showPassword = false;
+  bool showPassword = true;
   IconData suffixIcon = Icons.visibility_off_outlined;
 
   void changeSuffixIcon(context) {

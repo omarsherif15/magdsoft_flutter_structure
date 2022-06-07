@@ -21,11 +21,9 @@ class UserProfile extends StatelessWidget {
         centerTitle: true,
         backgroundColor: AppColor.blue,
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(50),
-          child: UserProfileView(userdata!)
-        ),
+      body: Padding(
+        padding: const EdgeInsets.all(50),
+        child: UserProfileView(userdata!)
       ),
     );
   }
