@@ -45,4 +45,17 @@ class RegisterCubit extends Cubit<RegisterState> {
     }
     emit(VisibilityChanged());
   }
+
+  bool showConfirmPassword = false;
+  IconData confirmSuffixIcon = Icons.visibility_off_outlined;
+
+  void changeConfirmSuffixIcon(context) {
+    showConfirmPassword = !showConfirmPassword;
+    if (showConfirmPassword) {
+      confirmSuffixIcon = Icons.visibility_outlined;
+    } else {
+      confirmSuffixIcon = Icons.visibility_off_outlined;
+    }
+    emit(VisibilityChanged());
+  }
 }

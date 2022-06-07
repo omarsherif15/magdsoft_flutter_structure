@@ -10,7 +10,7 @@ ThemeData lightMode (){
       elevation: 0.0,
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: AppColor.blue,
-        statusBarIconBrightness: Brightness.dark,
+        statusBarIconBrightness: Brightness.light,
       ),
     ),
   );

@@ -7,6 +7,7 @@ import '../../styles/colors.dart';
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
     return  BlocProvider(
@@ -22,7 +23,7 @@ class SplashScreen extends StatelessWidget {
           return Container(
             color: AppColor.blue,
             padding: const EdgeInsetsDirectional.only(top: 30),
-            child: const Image(image: AssetImage('assets/images/logo.png')),
+            child: Image(image: AssetImage('assets/images/logo.png')),
           );
         },
       ),

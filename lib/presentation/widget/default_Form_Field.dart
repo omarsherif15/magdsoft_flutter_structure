@@ -1,23 +1,24 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:magdsoft_flutter_structure/presentation/styles/colors.dart';
 
+import '../../i18n/local_keys.g.dart';
+
 class DefaultFormField extends StatelessWidget {
-  BuildContext context;
   TextEditingController controller;
   String hintText;
   TextInputType keyboardType;
-  String? Function(String?) validate;
+  String? Function(String?)? validate;
   bool? isPassword;
   IconData? suffix;
   void Function()? suffixPressed;
 
   DefaultFormField({
     Key? key,
-   required this.context,
    required this.controller,
    required this.hintText,
    required this.keyboardType,
-   required this.validate,
+    this.validate,
     this.isPassword,
     this.suffix,
     this.suffixPressed
@@ -30,8 +31,14 @@ class DefaultFormField extends StatelessWidget {
       keyboardType: keyboardType,
       obscureText: isPassword ?? false,
       textAlign: TextAlign.start,
-      validator: validate,
-      style: Theme.of(context).textTheme.bodyText1,
+      style: TextStyle(color: AppColor.grey,fontSize: 20),
+      validator: validate ?? (value)
+      {
+        if(value!.isEmpty) {
+          return LocaleKeys.empty_field.tr();
+        }
+        return null;
+      },
       decoration: InputDecoration(
         contentPadding: EdgeInsets.all(20),
         hintText: hintText,

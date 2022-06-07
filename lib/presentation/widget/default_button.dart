@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:magdsoft_flutter_structure/presentation/styles/colors.dart';
+import 'package:magdsoft_flutter_structure/presentation/widget/defualt_text.dart';
 
 class DefaultButton extends StatelessWidget {
   VoidCallback onTap;
@@ -31,14 +32,7 @@ class DefaultButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
           color: color??AppColor.blue
         ),
-        child: Text(
-          text,
-          style: TextStyle(
-            color: textColor??AppColor.white,
-            fontFamily: 'cairo',
-            fontSize: 20,
-          ),
-        ),
+        child: DefaultText(text: text,color: textColor ?? AppColor.white,size: 20,)
       ),
     );
   }
